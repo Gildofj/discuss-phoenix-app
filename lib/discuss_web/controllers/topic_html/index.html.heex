@@ -5,8 +5,12 @@
 
   <ul class="md:w-2/4 w-full flex flex-col items-center mt-5 gap-4">
     <%= for topic <- @topics do %>
-      <li class="w-full rounded-lg p-4 bg-purple-300 border border-purple-800 text-purple-950 font-semibold text-lg">
+      <li class="w-full flex justify-between items-center rounded-lg p-4 bg-purple-300 border border-purple-800 text-purple-950 font-semibold text-lg">
         <%= topic.title %>
+
+        <div>
+          <a href={"/topics/#{topic.id}/edit"} class="cursor-pointer">Edit</a>
+        </div>
       </li>
     <%= end %>
   </ul>
