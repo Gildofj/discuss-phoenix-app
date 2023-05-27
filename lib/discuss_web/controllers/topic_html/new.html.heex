@@ -1,4 +1,4 @@
-<.form :let={f} for={@changeset} action={"/topics"} class="w-full">
+<.form :let={f} for={@changeset} action={DiscussWeb.Router.Helpers.topic_path(@conn, :create)} class="w-full">
   <div class="w-full flex flex-col items-center gap-5 mt-5 px-7">
     <.input field={f[:title]} placeholder="Title" />
 
