@@ -1,0 +1,13 @@
+<div class="w-full flex flex-col items-center">
+  <h2 class="text-4xl font-semibold text-purple-400 mt-5">
+    Topics
+  </h2>
+
+  <ul class="w-2/4 flex flex-col items-center mt-5 gap-4">
+    <%= for topic <- @topics do %>
+      <li class="w-full rounded-lg p-4 bg-purple-300 border border-purple-800 text-purple-950 font-semibold text-lg">
+        <%= topic.title %>
+      </li>
+    <%= end %>
+  </ul>
+</div>
