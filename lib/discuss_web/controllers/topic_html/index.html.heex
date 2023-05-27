@@ -8,15 +8,16 @@
       <li class="w-full flex justify-between items-center rounded-lg p-4 bg-purple-300 border border-purple-800 text-purple-950 font-semibold text-lg">
         <%= topic.title %>
 
-        <div>
-          <a href={"/topics/#{topic.id}/edit"} class="cursor-pointer">Edit</a>
+        <div class="flex gap-5">
+          <a href={DiscussWeb.Router.Helpers.topic_path(@conn, :edit, topic.id)} class="cursor-pointer">Edit</a>
+          <%= link "Delete", to: DiscussWeb.Router.Helpers.topic_path(@conn, :delete, topic.id), method: :delete, class: "text-red-600 cursor-pointer" %>
         </div>
       </li>
     <%= end %>
   </ul>
 
   <div class="absolute bottom-5 right-7">
-    <a href="/topics/new" class="flex items-center justify-center p-7 rounded-full bg-purple-500 hover:bg-purple-700 cursor-pointer">
+    <a href="/new" class="flex items-center justify-center p-7 rounded-full bg-purple-500 hover:bg-purple-700 cursor-pointer">
       <.icon name="hero-plus" class="h-5 w-5 text-white"/>
     </a>
   </div>

@@ -20,7 +20,7 @@ defmodule DiscussWeb.TopicController do
     changeset = Topic.changeset(%Topic{}, topic)
 
     case Repo.insert(changeset) do
-      {:ok, post} ->
+      {:ok, _post} ->
         conn
         |> put_flash(:info, "Topic Created")
         |> redirect(to: path(conn, ~p"/"))
@@ -39,7 +39,7 @@ defmodule DiscussWeb.TopicController do
     changeset = Repo.get(Topic, id) |> Topic.changeset(topic)
 
     case Repo.update(changeset) do
-      {:ok, post} ->
+      {:ok, _post} ->
         conn
         |> put_flash(:info, "Topic Updated")
         |> redirect(to: path(conn, ~p"/"))
@@ -48,15 +48,11 @@ defmodule DiscussWeb.TopicController do
   end
 
   def delete(conn, %{"id" => id}) do
-    changeset = Repo.get(Topic, id)
+    Repo.get!(Topic, id) |> Repo.delete!
 
-    case Repo.delete(changeset) do
-      {:ok, post} ->
-        conn
-        |> put_flash(:info, "Topic Removed")
-        |> renderPage(:index)
-      {:error, changeset} -> renderPage conn, :index, changeset
-    end
+    conn
+    |> put_flash(:info, "Topic Deleted")
+    |> redirect(to: path(conn, ~p"/"))
   end
 
   defp renderPage(conn, path, args \\ %{}) do
