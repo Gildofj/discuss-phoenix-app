@@ -1,13 +1,19 @@
-<div class="w-full flex flex-col items-center">
+<div class="w-full flex flex-col items-center gap-5 px-5">
   <h2 class="text-4xl font-semibold text-purple-400 mt-5">
     Topics
   </h2>
 
-  <ul class="w-2/4 flex flex-col items-center mt-5 gap-4">
+  <ul class="md:w-2/4 w-full flex flex-col items-center mt-5 gap-4">
     <%= for topic <- @topics do %>
       <li class="w-full rounded-lg p-4 bg-purple-300 border border-purple-800 text-purple-950 font-semibold text-lg">
         <%= topic.title %>
       </li>
     <%= end %>
   </ul>
+
+  <div class="absolute bottom-5 right-7">
+    <a href="/topics/new" class="flex items-center justify-center p-7 rounded-full bg-purple-500 hover:bg-purple-700 cursor-pointer">
+      <.icon name="hero-plus" class="h-5 w-5 text-white"/>
+    </a>
+  </div>
 </div>

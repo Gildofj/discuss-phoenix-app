@@ -335,7 +335,7 @@ defmodule DiscussWeb.CoreComponents do
   # All other inputs text, datetime-local, url, password, etc. are handled here...
   def input(assigns) do
     ~H"""
-    <div phx-feedback-for={@name} class="w-[28rem]">
+    <div phx-feedback-for={@name} class="md:w-[28rem] w-full">
       <.label for={@id}><%= @label %></.label>
       <input
         type={@type}
