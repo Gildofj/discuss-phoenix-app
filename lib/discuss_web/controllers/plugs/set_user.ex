@@ -1,6 +1,5 @@
 defmodule DiscussWeb.Plugs.SetUser do
   import Plug.Conn
-  import Phoenix.Controller
 
   alias Discuss.Models.User
   alias Discuss.Repo

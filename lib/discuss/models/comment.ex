@@ -4,8 +4,6 @@ defmodule Discuss.Models.Comment do
 
   schema "comment" do
     field :content, :string
-    field :user_id, :id
-    field :topic_id, :id
     belongs_to :user, Discuss.Models.User
     belongs_to :topic, Discuss.Models.Topic
 
