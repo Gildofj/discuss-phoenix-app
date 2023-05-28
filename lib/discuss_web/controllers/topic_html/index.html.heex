@@ -9,8 +9,10 @@
         <%= topic.title %>
 
         <div class="flex gap-5">
-          <a href={DiscussWeb.Router.Helpers.topic_path(@conn, :edit, topic.id)} class="cursor-pointer">Edit</a>
-          <%= link "Delete", to: DiscussWeb.Router.Helpers.topic_path(@conn, :delete, topic.id), method: :delete, class: "text-red-600 cursor-pointer" %>
+          <%= if @conn.assigns.user && @conn.assigns.user.id == topic.user_id do %>
+            <a href={DiscussWeb.Router.Helpers.topic_path(@conn, :edit, topic.id)} class="cursor-pointer">Edit</a>
+            <%= link "Delete", to: DiscussWeb.Router.Helpers.topic_path(@conn, :delete, topic.id), method: :delete, class: "text-red-600 cursor-pointer" %>
+          <% end %>
         </div>
       </li>
     <%= end %>
