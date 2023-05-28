@@ -9,7 +9,6 @@ defmodule DiscussWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug DiscussWeb.Plugs.SetUser
-    plug DiscussWeb.Plugs.RequireAuth
   end
 
   pipeline :api do

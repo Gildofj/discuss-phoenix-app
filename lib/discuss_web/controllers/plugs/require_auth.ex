@@ -1,4 +1,8 @@
-defmodule DiscussWeb.Plug.RequireAuth do
+defmodule DiscussWeb.Plugs.RequireAuth do
+  import Plug.Conn
+  import Phoenix.Controller
+
+  alias DiscussWeb.Router.Helpers
 
   def init(_params) do
   end
@@ -9,7 +13,7 @@ defmodule DiscussWeb.Plug.RequireAuth do
     else
       conn
       |> put_flash(:error, "You most be logged in")
-      |> redirect(to: path(conn, ~p"/"))
+      |> redirect(to: Helpers.topic_path(conn, :index))
       |> halt()
     end
   end

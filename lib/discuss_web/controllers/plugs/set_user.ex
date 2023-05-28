@@ -6,7 +6,6 @@ defmodule DiscussWeb.Plugs.SetUser do
   alias Discuss.Repo
 
   def init(_params) do
-
   end
 
   def call(conn, _params) do
