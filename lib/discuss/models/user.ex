@@ -7,6 +7,7 @@ defmodule Discuss.Models.User do
     field :provider, :string
     field :token, :string
     has_many :topic, Discuss.Models.Topic
+    has_many :comment, Discard.Models.Comment
 
     timestamps()
   end
