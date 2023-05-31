@@ -5,7 +5,7 @@ defmodule Discuss.Models.Topic do
   schema "topic" do
     field :title, :string
     belongs_to :user, Discuss.Models.User
-    has_many :comment, Discard.Models.Comment
+    has_many :comment, Discuss.Models.Comment
 
     timestamps()
   end

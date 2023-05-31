@@ -1,4 +1,18 @@
-<%= @topic.title %>
+<div class="w-full flex flex-col items-center justify-center">
+  <h2 class="text-4xl font-semibold text-purple-400 mt-5">
+    <%= @topic.title %>
+  </h2>
+
+  <div class="w-2/4 flex flex-col items-center justify-center gap-5 mt-5">
+    <textarea
+      id="comment"
+      class="h-[18rem] border-2 rounded border-none bg-purple-200 w-full max-w-md focus:ring-purple-700 resize-none min-w-full"
+      placeholder="Insert a comment here"
+    />
+    <button id="add-comment" class="py-4 px-16 rounded-lg font-semibold bg-purple-500 text-white hover:bg-purple-700 hover:duration-500">Add Comment</button>
+    <ul id="comments" class="w-full flex flex-col items-center justify-center gap-5" />
+  </div>
+</div>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     window.createSocket(<%= @topic.id %>)
