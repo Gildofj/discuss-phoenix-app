@@ -33,12 +33,19 @@ function renderComment(comment) {
   document.getElementById("comments").innerHTML += commentTemplate(comment);
 };
 
-function commentTemplate({ content, inserted_at }) {
+function commentTemplate({ content, user, inserted_at }) {
+  const email = user?.email || "Anonymous";
+
   return `
-      <li class="w-full relative flex justify-between border border-purple-500 p-3 rounded bg-purple-100">
+      <li class="w-full relative flex justify-between border border-purple-500 p-3 pb-6 rounded bg-purple-100">
         ${content}
-        <div class="absolute text-xs bottom-1 right-1">
-          ${inserted_at.split("T")[0]}
+        <div class="absolute flex items-center justify-between w-full text-xs right-1 left-1 bottom-1">
+          <span class="text-purple-700 font-semibold">
+            ${email}
+          </span>
+          <span class="pr-2">
+            ${inserted_at.split("T")[0]} at ${inserted_at.split("T")[1].split(":").map((v, i) => i != 2 ? v : undefined).join(":").substring(0, 5)}
+          </span>
         </div>
       </li>
     `;
